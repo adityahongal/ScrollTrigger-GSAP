@@ -27,15 +27,18 @@
         let tl = gsap.timeline({
             scrollTrigger: {
                 trigger: '.animated-element',
-                start: 'top center',
-                end: 'bottom center',
-                scrub: true,
-                markers:true
+                start: '-50% center',
+                end: '200% center',
+                // scrub: true,
+                scrub:false,              // when scrub is set to false, we can manually control scrolling
+                markers:true,
+                toggleActions: 'play onLeave onEnterback onLeaveback'
             }
         })
 
         tl.to('.animated-element',{
-            x:800
+            x:800,
+            duration: 0.5                // use when scrub is set to false
         })
 
         // Lenis smooth scroll
